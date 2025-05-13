@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Échange de Documents</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Plateforme d'Échange de Documents</h1>
+    </header>
+    <main>
+        <section class="upload">
+            <h2>Uploader un document</h2>
+            <input type="file" id="fileInput">
+            <button onclick="uploadFile()">Envoyer</button>
+        </section>
+        <section class="documents">
+            <h2>Documents partagés</h2>
+            <ul id="documentList">
+                <!-- Les documents partagés seront affichés ici -->
+            </ul>
+        </section>
+    </main>
+    <script>
+        function uploadFile() {
+            let fileInput = document.getElementById("fileInput");
+            let documentList = document.getElementById("documentList");
+
+            if (fileInput.files.length > 0) {
+                let fileName = fileInput.files[0].name;
+                let listItem = document.createElement("li");
+                listItem.textContent = fileName;
+                documentList.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
